@@ -9,6 +9,7 @@ This repo is the implement of our work "RestoreFormer++: Towards Real-World Blin
 **RestoreFormer++** is an extension of our [**RestoreFormer**](https://openaccess.thecvf.com/content/CVPR2022/papers/Wang_RestoreFormer_High-Quality_Blind_Face_Restoration_From_Undegraded_Key-Value_Pairs_CVPR_2022_paper.pdf). It proposes to restore a degraded face image with both fidelity and realness by using the powerful fully-spacial attention mechanisms to model the abundant contextual information in the face and its interplay with our reconstruction-oriented high-quality priors. Besides, it introduces an extending degrading model (**EDM**) that contains more realistic degraded scenarios for training data synthesizing, which helps to enhance its robustness and generalization towards real-world scenarios. Our results compared with the state-of-the-art methods and performance with/without EDM are in following:
 
 ![](imags/fig1.png)
+
 ![](imags/fig2.png)
 
 ## Environment
