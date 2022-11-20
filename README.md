@@ -10,7 +10,7 @@ This repo is the implement of our work "RestoreFormer++: Towards Real-World Blin
 
 ![images/fig1.png](images/fig1.png)
 
-![images/fig2.png](images/fig2.png)
+![images/fig3.png](images/fig3.png)
 
 ## Environment
 
