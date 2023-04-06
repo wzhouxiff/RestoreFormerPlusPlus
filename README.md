@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Updating
 - 20221003 We provide the link of the [test datasets](#testset).
 - 20220924 We add the code for [**metrics**](#metrics) in scripts/metrics.
@@ -62,6 +61,3 @@ We thank everyone who makes their code and models available, especially [Taming 
 
 ## Contact
 For any question, feel free to email `wzhoux@connect.hku.hk` or `zhouzi1212@gmail.com`.
-=======
-# RestoreFormerPlusPlus_Private
->>>>>>> 70fdf30e5d79c5379db66699019180228f42f216
