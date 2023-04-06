@@ -3,13 +3,18 @@
 root='results/'
 out_root='results/metrics'
 
-test_name='RestoreFormer'
+root='/group/30042/zhouxiawang/checkpoints/RestoreFormer/resutls/WebPhoto-Test'
+out_root='/group/30042/zhouxiawang/checkpoints/RestoreFormer/metrics'
 
-test_image=$test_name'/restored_faces'
+test_name='RestoreFormer++'
+tag='test'
+
+test_image=$test_name'_'$tag'/restored_faces'
 out_name=$test_name
 need_post=1
 
 CelebAHQ_GT='YOUR_PATH'
+
 
 # FID
 python -u scripts/metrics/cal_fid.py \

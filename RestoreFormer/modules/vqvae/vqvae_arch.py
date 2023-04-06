@@ -604,8 +604,10 @@ class MultiHeadDecoderTransformer(nn.Module):
             for i_block in range(self.num_res_blocks+1):
                 h = self.up[i_level].block[i_block](h, temb)
                 if len(self.up[i_level].attn) > 0:
-                    h = self.up[i_level].attn[i_block](h, hs['block_'+str(i_level)+'_atten'])
-                    # hfeature = h.clone()
+                    if 'block_'+str(i_level)+'_atten' in hs:
+                        h = self.up[i_level].attn[i_block](h, hs['block_'+str(i_level)+'_atten'])
+                    else:
+                        h = self.up[i_level].attn[i_block](h, hs['block_'+str(i_level)])
             if i_level != 0:
                 h = self.up[i_level].upsample(h)
 
@@ -673,14 +675,16 @@ class VQVAEGANMultiHeadTransformer(nn.Module):
     def __init__(self, n_embed=1024, embed_dim=256, ch=128, out_ch=3, ch_mult=(1,2,4,8), 
                  num_res_blocks=2, attn_resolutions=16, dropout=0.0, in_channels=3, 
                  resolution=512, z_channels=256, double_z=False, enable_mid=True, 
-                 fix_decoder=False, fix_codebook=False, fix_encoder=False, constrastive_learning_loss_weight=0.0,
-                 head_size=1):
+                 fix_decoder=False, fix_codebook=False, fix_encoder=False, 
+                 head_size=1, ex_multi_scale_num=0):
         super(VQVAEGANMultiHeadTransformer, self).__init__()
 
         self.encoder = MultiHeadEncoder(ch=ch, out_ch=out_ch, ch_mult=ch_mult, num_res_blocks=num_res_blocks,
                                attn_resolutions=attn_resolutions, dropout=dropout, in_channels=in_channels,
                                resolution=resolution, z_channels=z_channels, double_z=double_z, 
                                enable_mid=enable_mid, head_size=head_size)
+        for i in range(ex_multi_scale_num):
+                attn_resolutions = [attn_resolutions[0], attn_resolutions[-1]*2]
         self.decoder = MultiHeadDecoderTransformer(ch=ch, out_ch=out_ch, ch_mult=ch_mult, num_res_blocks=num_res_blocks,
                                attn_resolutions=attn_resolutions, dropout=dropout, in_channels=in_channels,
                                resolution=resolution, z_channels=z_channels, enable_mid=enable_mid, head_size=head_size)
@@ -704,6 +708,9 @@ class VQVAEGANMultiHeadTransformer(nn.Module):
         if fix_encoder:
             for _, param in self.encoder.named_parameters():
                 param.requires_grad = False
+            for _, param in self.quant_conv.named_parameters():
+                param.requires_grad = False
+	    
 
     def encode(self, x):
         

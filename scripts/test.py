@@ -69,6 +69,8 @@ def restoration(model,
             save_face_name = f'{basename}_{idx:02d}.png'
         save_restore_path = os.path.join(save_root, 'restored_faces', save_face_name)
         imwrite(restored_face, save_restore_path)
+        save_restore_path = os.path.join(save_root, 'cmp', save_face_name)
+        imwrite(np.concatenate([cropped_face, restored_face], axis=1), save_restore_path)
 
 
     if not has_aligned and paste_back:
@@ -257,7 +259,7 @@ if __name__ == "__main__":
     model = load_model_and_dset(config, ckpt, gpu, eval_mode)
     
     outdir = opt.outdir
-    os.makedirs(outdir, exist_ok=True)
+    os.makedirs(outdir, exist_ok=True, mode=777)
     print("Writing samples to ", outdir)
 
     # initialize face helper
