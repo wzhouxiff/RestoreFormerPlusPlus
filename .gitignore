@@ -5,3 +5,6 @@ scripts/run_clustre.sh
 sftp-config.json
 results/
 # scripts/metrics
+.vscode/
+.DS_Store
+

@@ -1,9 +1,10 @@
 model:
-  base_learning_rate: 4.5e-6 
+  base_learning_rate: 4.5e-7
   target: RestoreFormer.models.vqgan_v1.RestoreFormerModel
   params: 
     image_key: 'lq'
-    ckpt_path: /group/30042/zhouxiawang/checkpoints/RestoreFormer/release/logs/2022-11-14T19-28-18_ROHQDROHQD_lmdb_gpus8_h4_E62_seed13/checkpoints/last.ckpt.105
+    # ckpt_path: /group/30042/zhouxiawang/checkpoints/RestoreFormer/release/logs/2022-11-14T19-28-18_ROHQDROHQD_lmdb_gpus8_h4_E62_seed13/checkpoints/last.ckpt.105
+    ckpt_path: /group/30042/zhouxiawang/checkpoints/RestoreFormer/release/logs/2022-11-16T14-55-40_RestoreFormer++RestoreFormer++_lmdb_gpus8_h4_E62_ROHQD105_seed32/checkpoints/last.ckpt.105
     special_params_lr_scale: 1
     comp_params_lr_scale: 10
     schedule_step: [4000000, 8000000]
@@ -24,7 +25,7 @@ model:
         attn_resolutions: [16]
         enable_mid: True
 
-        fix_decoder: True
+        fix_decoder: False
         fix_codebook: True
         fix_encoder: False
         head_size: 4
