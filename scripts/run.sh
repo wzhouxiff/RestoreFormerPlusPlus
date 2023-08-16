@@ -3,16 +3,16 @@ export BASICSR_JIT=True
 conf_name='HQ_Dictionary'
 # conf_name='RestoreFormer'
 conf_name='ROHQD'
-conf_name='RestoreFormer++'
+conf_name='RestoreFormer++_cf'
 
 gpus='0,1,2,3,4,5,6'
 # gpus='0,1,2,3,4,5,6,7'
 node_n=1
 ntasks_per_node=7
 
-gpus='7,'
-node_n=1
-ntasks_per_node=1
+# gpus='7,'
+# node_n=1
+# ntasks_per_node=1
 
 gpu_n=$(expr $node_n \* $ntasks_per_node)
 

@@ -37,11 +37,11 @@ model:
       params:
         disc_conditional: False
         disc_in_channels: 3
-        disc_start: 10001
+        disc_start: 0
         disc_weight: 0.8
         codebook_weight: 1.0
         use_actnorm: False
-        comp_weight: 0 #1.0
+        comp_weight: 0.8
         identity_weight: 1.0
         identity_model_path: experiments/pretrained_models/arcface_resnet18.pth
 
@@ -67,10 +67,10 @@ data:
         blur_kernel_size: [19,20]
         kernel_list: ['iso', 'aniso']
         kernel_prob: [0.5, 0.5]
-        blur_sigma: [0.1, 10]
-        downsample_range: [0.8, 8]
+        blur_sigma: [1, 15]
+        downsample_range: [1, 30]
         noise_range: [0, 20]
-        jpeg_range: [60, 100]
+        jpeg_range: [30, 90]
 
         color_jitter_prob: ~
         color_jitter_shift: 20
@@ -110,10 +110,10 @@ data:
         blur_kernel_size: [19,20]
         kernel_list: ['iso', 'aniso']
         kernel_prob: [0.5, 0.5]
-        blur_sigma: [0.1, 10]
-        downsample_range: [0.8, 8]
+        blur_sigma: [1, 15]
+        downsample_range: [1, 30]
         noise_range: [0, 20]
-        jpeg_range: [60, 100]
+        jpeg_range: [30, 90]
 
         # color jitter and gray
         color_jitter_prob: ~
