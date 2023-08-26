@@ -76,10 +76,12 @@ fi
 
 sudo ls -l /group/30042/zhouxiawang/env/share/weights/facexlib
 sudo ls -l /group/30042/zhouxiawang/env/share/weights/
-sudo cp /group/30042/zhouxiawang/env/share/weights/facexlib/*.pth /usr/local/app/.local/lib/python3.8/site-packages/facexlib/weights/
-sudo cp /group/30042/zhouxiawang/env/share/weights/vgg16-397923af.pth /root/.cache/torch/hub/checkpoints
 sudo ls -l "/root/.cache/torch/hub/checkpoints"
-sudo ls -l "/usr/local/app/.local/lib/python3.8/site-packages/facexlib/weights/"
+sudo ls -l "/data/miniconda3/envs/pt19/lib/python3.8/site-packages/facexlib/weights/"
+
+sudo cp /group/30042/zhouxiawang/env/share/weights/vgg16-397923af.pth /root/.cache/torch/hub/checkpoints
+sudo cp /group/30042/zhouxiawang/env/share/weights/facexlib/*.pth /data/miniconda3/envs/pt19/lib/python3.8/site-packages/facexlib/weights/
+sudo cp /group/30042/zhouxiawang/env/share/weights/pt_inception-2015-12-05-6726825d.pth /root/.cache/torch/hub/checkpoints/
 
 export OMP_NUM_THREADS=6
 

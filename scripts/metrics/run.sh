@@ -10,6 +10,9 @@ test_name='RestoreFormer++'
 
 test_name='2022-11-16T14-55-40_RestoreFormer++RestoreFormer++_lmdb_gpus8_h4_E62_ROHQD105_seed32'
 test_name='2022-11-21T10-49-14_RestoreFormer++RestoreFormer++_lmdb_gpus8_h4_E62_ROHQD105_En105_lr7_seed44'
+test_name='2023-08-17T17-44-56_RestoreFormer++_cfRestoreFormer++_cf_gpus7_lmdb_h4_ROHQD105_disc05_seed29'
+test_name='2023-08-24T17-15-56_RestoreFormer++_cfRestoreFormer++_cf_gpus7_lmdb_h4_ROHQD105_disc065_seed63'
+test_name='2023-08-25T19-17-31_RestoreFormer++_cfRestoreFormer++_cf_gpus7_lmdb_h4_ROHQD105_disc08_seed35'
 tag='test'
 
 

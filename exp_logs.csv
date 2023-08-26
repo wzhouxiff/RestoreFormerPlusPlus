@@ -1,1 +1,6 @@
-20230816	2023-08-16T10-41-25_RestoreFormer++_cfRestoreFormer++_cf_gpus7_lmdb_h4_ROHQD105_seed13	在RF++最终model的基础上，配置codeformer的退化参数finetune
+20230816	2023-08-16T10-41-25_RestoreFormer++_cfRestoreFormer++_cf_gpus7_lmdb_h4_ROHQD105_seed13	在RF++最终model的基础上，配置codeformer的退化参数finetune		
+	2023-08-17T17-44-56_RestoreFormer++_cfRestoreFormer++_cf_gpus7_lmdb_h4_ROHQD105_disc05_seed29	disc03->05	last.ckpt.110	
+	2023-08-24T17-15-56_RestoreFormer++_cfRestoreFormer++_cf_gpus7_lmdb_h4_ROHQD105_disc065_seed63	disc03->05->0.65	last.ckpt.10	
+	2023-08-25T19-17-31_RestoreFormer++_cfRestoreFormer++_cf_gpus7_lmdb_h4_ROHQD105_disc08_seed35	disc03->05->0.65->0.8	更糊了	
+				
+	2023-08-26T21-47-57_RestoreFormer++_cfRestoreFormer++_cf_gpus7_lmdb_h4_ROHQD105_disc08_lr6_seed96	lr 4.5e-7 -> 4.5e-6		要增加数据吗？

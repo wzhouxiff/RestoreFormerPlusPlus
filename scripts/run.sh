@@ -20,7 +20,7 @@ python -u main.py \
 --root-path /group/30042/zhouxiawang/checkpoints/RestoreFormer/release \
 --base 'configs/'$conf_name'.yaml' \
 -t True \
---postfix $conf_name'_gpus'$gpu_n'_lmdb_h4_ROHQD105' \
+--postfix $conf_name'_gpus'$gpu_n'_lmdb_h4_ROHQD105_disc08_lr6' \
 --gpus $gpus \
 --num-nodes $node_n \
 --random-seed True \
