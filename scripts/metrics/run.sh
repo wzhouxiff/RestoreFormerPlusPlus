@@ -13,9 +13,6 @@ test_image=$test_name'_'$tag'/restored_faces'
 out_name=$test_name
 need_post=1
 
-
-
-
 # FID
 python -u scripts/metrics/cal_fid.py \
 $root'/'$test_image \
