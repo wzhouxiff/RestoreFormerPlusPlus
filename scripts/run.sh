@@ -3,7 +3,8 @@ export BASICSR_JIT=True
 conf_name='HQ_Dictionary'
 # conf_name='RestoreFormer'
 conf_name='ROHQD'
-conf_name='RestoreFormer++_cf'
+# conf_name='RestoreFormer++_cf'
+conf_name='RestoreFormer++'
 
 gpus='0,1,2,3,4,5,6'
 # gpus='0,1,2,3,4,5,6,7'
@@ -20,7 +21,7 @@ python -u main.py \
 --root-path /group/30042/zhouxiawang/checkpoints/RestoreFormer/release \
 --base 'configs/'$conf_name'.yaml' \
 -t True \
---postfix $conf_name'_gpus'$gpu_n'_lmdb_h4_ROHQD105_disc08_lr6' \
+--postfix $conf_name'_gpus'$gpu_n'_lmdb_h4_fixD_lr8' \
 --gpus $gpus \
 --num-nodes $node_n \
 --random-seed True \

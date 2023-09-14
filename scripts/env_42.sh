@@ -39,4 +39,5 @@ ls -l /group/30042/zhouxiawang/env/share/weights/facexlib
 ls -l /group/30042/zhouxiawang/env/share/weights/
 ln -s /group/30042/zhouxiawang/env/share/weights/facexlib /usr/local/app/.local/lib/python3.8/site-packages/facexlib/weights
 cp /group/30042/zhouxiawang/env/share/weights/vgg16-397923af.pth /root/.cache/torch/hub/checkpoints
+cp /group/30042/zhouxiawang/env/share/weights/pt_inception-2015-12-05-6726825d.pth  /root/.cache/torch/hub/checkpoints
 ls -l "/root/.cache/torch/hub/checkpoints"

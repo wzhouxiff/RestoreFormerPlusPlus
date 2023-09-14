@@ -1,5 +1,5 @@
 model:
-  base_learning_rate: 4.5e-6
+  base_learning_rate: 4.5e-7
   target: RestoreFormer.models.vqgan_v1.RestoreFormerModel
   params: 
     image_key: 'lq'
