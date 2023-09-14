@@ -8,3 +8,11 @@ results/
 .vscode/
 .DS_Store
 
+# private only
+# ./exp_logs.cvs
+# ./exp_logs.xlsx
+# ./scripts/metrics/run_local.sh
+# ./scripts/test_daily.sh
+# ./RF.sh
+# ./configs/RestoreFormer++_cf.yaml
+# ./configs/RestoreFormer++.yaml

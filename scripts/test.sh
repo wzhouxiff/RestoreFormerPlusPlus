@@ -1,15 +1,11 @@
-# # ### Good
+
 exp_name='RestoreFormer'
-exp_name='RestoreFormer++'
+exp_name='RestoreFormerPlusPlus'
 
 root_path='experiments'
 out_root_path='results'
 align_test_path='data/test'
 tag='test'
-
-
-out_root_path='/group/30042/zhouxiawang/checkpoints/RestoreFormer/resutls/WebPhoto-Test'
-align_test_path='/group/30042/zhouxiawang/data/FaceRestoration/WebPhoto-Test'
 
 outdir=$out_root_path'/'$exp_name'_'$tag
 
