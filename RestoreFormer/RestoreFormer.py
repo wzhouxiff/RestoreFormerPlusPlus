@@ -13,18 +13,17 @@ ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 class RestoreFormer():
-    """Helper for restoration with GFPGAN.
+    """Helper for restoration with RestoreFormer.
 
     It will detect and crop faces, and then resize the faces to 512x512.
-    GFPGAN is used to restored the resized faces.
+    RestoreFormer is used to restored the resized faces.
     The background is upsampled with the bg_upsampler.
     Finally, the faces will be pasted back to the upsample background image.
 
     Args:
         model_path (str): The path to the GFPGAN model. It can be urls (will first download it automatically).
         upscale (float): The upscale of the final output. Default: 2.
-        arch (str): The GFPGAN architecture. Option: clean | original. Default: clean.
-        channel_multiplier (int): Channel multiplier for large networks of StyleGAN2. Default: 2.
+        arch (str): The RestoreFormer architecture. Option: RestoreFormer | RestoreFormer++. Default: RestoreFormer++.
         bg_upsampler (nn.Module): The upsampler for the background. Default: None.
     """
 

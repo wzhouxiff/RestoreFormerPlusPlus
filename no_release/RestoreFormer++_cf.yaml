@@ -1,0 +1,143 @@
+model:
+  base_learning_rate: 4.5e-7
+  target: RestoreFormer.models.vqgan_v1.RestoreFormerModel
+  params: 
+    image_key: 'lq'
+    # ckpt_path: /group/30042/zhouxiawang/checkpoints/RestoreFormer/release/logs/2022-11-14T19-28-18_ROHQDROHQD_lmdb_gpus8_h4_E62_seed13/checkpoints/last.ckpt.105
+    # ckpt_path: /group/30042/zhouxiawang/checkpoints/RestoreFormer/release/logs/2022-11-16T14-55-40_RestoreFormer++RestoreFormer++_lmdb_gpus8_h4_E62_ROHQD105_seed32/checkpoints/last.ckpt.105
+    # ckpt_path: /group/30042/zhouxiawang/checkpoints/RestoreFormer/models/2022-08-28T15-15-23_RF18_mh1_new_params_multiscale_restart_sh30_journal_re035_mh4E13_distill112222_id10_disc08_cp101010_un010_hy000875095_gy0008_exp000_sht0200132_45lr7_gpu24_Pixel_seed72/checkpoints/last.ckpt.33
+    # ckpt_path: /group/30042/zhouxiawang/checkpoints/RestoreFormer/release/logs/2023-08-16T10-41-25_RestoreFormer++_cfRestoreFormer++_cf_gpus7_lmdb_h4_ROHQD105_seed13/checkpoints/last.ckpt
+    # ckpt_path: /group/30042/zhouxiawang/checkpoints/RestoreFormer/release/logs/2023-08-17T17-44-56_RestoreFormer++_cfRestoreFormer++_cf_gpus7_lmdb_h4_ROHQD105_disc05_seed29/checkpoints/last.ckpt.110
+    ckpt_path: /group/30042/zhouxiawang/checkpoints/RestoreFormer/release/logs/2023-08-24T17-15-56_RestoreFormer++_cfRestoreFormer++_cf_gpus7_lmdb_h4_ROHQD105_disc065_seed63/checkpoints/last.ckpt.10
+    special_params_lr_scale: 1
+    comp_params_lr_scale: 1
+    schedule_step: [4000000, 8000000]
+    ddconfig:
+      target: RestoreFormer.modules.vqvae.vqvae_arch.VQVAEGANMultiHeadTransformer
+      params:
+        embed_dim: 256
+        n_embed: 1024
+        double_z: False
+        z_channels: 256
+        resolution: 512
+        in_channels: 3  
+        out_ch: 3
+        ch: 64
+        ch_mult: [ 1,2,2,4,4,8]  # num_down = len(ch_mult)-1
+        num_res_blocks: 2
+        dropout: 0.0
+        attn_resolutions: [16]
+        enable_mid: True
+
+        fix_decoder: False
+        fix_codebook: True
+        fix_encoder: False
+        head_size: 4
+        ex_multi_scale_num: 1
+
+    lossconfig:
+      target: RestoreFormer.modules.losses.vqperceptual.VQLPIPSWithDiscriminatorWithCompWithIdentity
+      params:
+        disc_conditional: False
+        disc_in_channels: 3
+        disc_start: 0
+        disc_weight: 0.8 # 0.8
+        codebook_weight: 1.0
+        use_actnorm: False
+        comp_weight: 1.5
+        identity_weight: 1.0
+        identity_model_path: experiments/pretrained_models/arcface_resnet18.pth
+
+data:
+  target: main.DataModuleFromConfig
+  params:
+    batch_size: 4
+    num_workers: 8
+    train:
+      target: RestoreFormer.data.ffhq_uneven_degradation_dataset.FFHQUnevenDegradationDataset
+      params:
+        # dataroot_gt: data/ffhq/ffhq_512
+        # io_backend:
+        #   type: disk
+        dataroot_gt: data/ffhq/ffhq_512.lmdb
+        io_backend:
+          type: lmdb
+        use_hflip: True
+        mean: [0.5, 0.5, 0.5]
+        std: [0.5, 0.5, 0.5]
+        out_size: 512
+
+        blur_kernel_size: [19,20]
+        kernel_list: ['iso', 'aniso']
+        kernel_prob: [0.5, 0.5]
+        blur_sigma: [1, 15]
+        downsample_range: [1, 30]
+        noise_range: [0, 20]
+        jpeg_range: [30, 90]
+
+        color_jitter_prob: ~
+        color_jitter_shift: 20
+        color_jitter_pt_prob: ~
+
+        gray_prob: 0.008
+        gt_gray: True
+
+        exposure_prob: ~
+        exposure_range: [0.7, 1.1]
+        
+        shift_prob: 0.2
+        shift_unit: 1
+        shift_max_num: 32
+
+        uneven_prob: 0.1
+        
+        hazy_prob: 0.008
+        hazy_alpha: [0.75, 0.95]
+
+        crop_components: True
+        component_path: experiments/pretrained_models/FFHQ_eye_mouth_landmarks_512.pth
+        eye_enlarge_ratio: 1.4
+
+
+    validation:
+      target: RestoreFormer.data.ffhq_uneven_degradation_dataset.FFHQUnevenDegradationDataset
+      params:
+        dataroot_gt: data/val
+        io_backend:
+          type: disk
+        use_hflip: False
+        mean: [0.5, 0.5, 0.5]
+        std: [0.5, 0.5, 0.5]
+        out_size: 512
+
+        blur_kernel_size: [19,20]
+        kernel_list: ['iso', 'aniso']
+        kernel_prob: [0.5, 0.5]
+        blur_sigma: [1, 15]
+        downsample_range: [1, 30]
+        noise_range: [0, 20]
+        jpeg_range: [30, 90]
+
+        # color jitter and gray
+        color_jitter_prob: ~
+        color_jitter_shift: 20
+        color_jitter_pt_prob: ~
+        
+        gray_prob: ~
+        gt_gray: True
+
+        exposure_prob: ~
+        exposure_range: [0.7, 1.1]
+        
+        shift_prob: ~
+        shift_unit: 1
+        shift_max_num: 32
+
+        uneven_prob: ~
+        
+        hazy_prob: ~
+        hazy_alpha: [0.75, 0.95]
+
+        crop_components: False
+        component_path: experiments/pretrained_models/FFHQ_eye_mouth_landmarks_512.pth
+        eye_enlarge_ratio: 1.4
