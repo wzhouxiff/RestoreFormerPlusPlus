@@ -1,6 +1,6 @@
 # ToDo List
 
-- [ ] Provide gradio model
+- [x] Update an online demo [![Huggingface Gradio](https://img.shields.io/static/v1?label=Demo&message=Huggingface%20Gradio&color=orange)](https://huggingface.co/spaces/wzhouxiff/RestoreFormerPlusPlus)
 - [x] 20230915 Provide a user-friendly method for [inference](#inference).
     - It is avaliable for background SR with [RealESRGAN](https://github.com/xinntao/Real-ESRGAN).
     - **basicsr should be upgraded to 1.4.2**.
