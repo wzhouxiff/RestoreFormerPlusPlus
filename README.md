@@ -1,6 +1,9 @@
 # ToDo List
 
 - [ ] Provide gradio model
+- [x] 20230915 Provide a user-friendly method for [inference](#inference).
+    - It is avaliable for background SR with [RealESRGAN](https://github.com/xinntao/Real-ESRGAN).
+    - **basicsr should be upgraded to 1.4.2**.
 - [x] 20230914 Upload model
 - [x] 20230914 Realse Code
 - [x] 20221120 Introducing the project.
@@ -23,7 +26,7 @@ This repo is a official implementation of "[RestoreFormer++: Towards Real-World 
 - pytorch>=1.7.1
 - pytorch-lightning==1.0.8
 - omegaconf==2.0.0
-- basicsr==1.3.3.4
+- ~~basicsr==1.3.3.4~~ **basicsr>=1.4.2**
 
 **Warning** Different versions of pytorch-lightning and omegaconf may lead to errors or different results.
 
@@ -36,6 +39,16 @@ This repo is a official implementation of "[RestoreFormer++: Towards Real-World 
 **Model**: 
 Both pretrained models used for training and the trained model of our RestoreFormer and RestoreFormer++ can be attained from [Google Driver](https://connecthkuhk-my.sharepoint.com/:f:/g/personal/wzhoux_connect_hku_hk/EkZhGsLBtONKsLlWRmf6g7AB_VOA_6XAKmYUXLGKuNBsHQ?e=ic2LPl). Link these models to ./experiments.
 
+<!-- ## <a id="metrics">Metrics</a> -->
+<h2 id="inference">Quick Inference</h2>
+
+    python inference.py -i data/aligned -o results/RF++/aligned -v RestoreFormer++ -s 2 --aligned --save
+    python inference.py -i data/raw -o results/RF++/raw -v RestoreFormer++ -s 2 --save
+    python inference.py -i data/aligned -o results/RF/aligned -v RestoreFormer -s 2 --aligned --save
+    python inference.py -i data/raw -o results/RF/raw -v RestoreFormer -s 2 --save
+
+**Note**: Related codes are borrowed from [GFPGAN](https://github.com/TencentARC/GFPGAN). 
+
 ## Test
     sh scripts/test.sh
 
@@ -46,7 +59,8 @@ scripts/test.sh
 
     root_path='experiments'
     out_root_path='results'
-    align_test_path='data/test'
+    align_test_path='data/aligned'
+    # unalign_test_path='data/raw'
     tag='test'
 
     outdir=$out_root_path'/'$exp_name'_'$tag
@@ -55,7 +69,7 @@ scripts/test.sh
         mkdir -m 777 $outdir
     fi
 
-    CUDA_VISIBLE_DEVICES=7 python -u scripts/test.py \
+    CUDA_VISIBLE_DEVICES=0 python -u scripts/test.py \
     --outdir $outdir \
     -r $root_path'/'$exp_name'/last.ckpt' \
     -c 'configs/'$exp_name'.yaml' \
@@ -67,7 +81,7 @@ scripts/test.sh
 - Setting the model path with *root_path*
 - Restored results are save in *out_root_path*
 - Put the degraded face images in *test_path*
-- If the degraded face images are aligned, set *--aligned*, else remove it from the script. The provided test images in data/test are aligned.
+- If the degraded face images are aligned, set *--aligned*, else remove it from the script. The provided test images in data/aligned are aligned, while images in data/raw are unaligned and contain several faces.
 
 ## Training
     sh scripts/run.sh

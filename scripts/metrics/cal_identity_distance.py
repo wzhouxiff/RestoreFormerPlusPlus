@@ -1,22 +1,25 @@
-import os, sys
-import torch
 import argparse
+import glob
+import math
+import os
+import pdb
+import sys
+from copy import deepcopy
+
 import cv2
 import numpy as np
-import glob
-import pdb
-import tqdm
-from copy import deepcopy
+import torch
 import torch.nn.functional as F
-import math
-
+import tqdm
 
 root_path = os.path.abspath(os.path.join(__file__, os.path.pardir, os.path.pardir, os.path.pardir))
 sys.path.append(root_path)
 sys.path.append(os.path.join(root_path, 'RestoreFormer/modules/losses'))
 
+from basicsr.losses.basic_loss import L1Loss, MSELoss
+
 from RestoreFormer.modules.vqvae.arcface_arch import ResNetArcFace
-from basicsr.losses.losses import L1Loss, MSELoss
+
 
 def cosine_similarity(emb1, emb2):
     return np.arccos(np.dot(emb1, emb2) / ( np.linalg.norm(emb1) * np.linalg.norm(emb2)))

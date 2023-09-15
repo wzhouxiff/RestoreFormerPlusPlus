@@ -1,12 +1,8 @@
+import numpy as np
 import torch
 import torch.nn as nn
-import random
-import math
 import torch.nn.functional as F
-import numpy as np
-# from basicsr.utils.registry import ARCH_REGISTRY
-import torch.nn.utils.spectral_norm as SpectralNorm
-import RestoreFormer.distributed as dist_fn
+
 
 class VectorQuantizer(nn.Module):
     """
@@ -672,11 +668,30 @@ class VQVAEGAN(nn.Module):
         return dec, diff, info, hs
 
 class VQVAEGANMultiHeadTransformer(nn.Module):
-    def __init__(self, n_embed=1024, embed_dim=256, ch=128, out_ch=3, ch_mult=(1,2,4,8), 
-                 num_res_blocks=2, attn_resolutions=16, dropout=0.0, in_channels=3, 
-                 resolution=512, z_channels=256, double_z=False, enable_mid=True, 
-                 fix_decoder=False, fix_codebook=False, fix_encoder=False, 
-                 head_size=1, ex_multi_scale_num=0):
+    # def __init__(self, n_embed=1024, embed_dim=256, ch=128, out_ch=3, ch_mult=(1,2,4,8), 
+    #              num_res_blocks=2, attn_resolutions=16, dropout=0.0, in_channels=3, 
+    #              resolution=512, z_channels=256, double_z=False, enable_mid=True, 
+    #              fix_decoder=False, fix_codebook=False, fix_encoder=False, 
+    #              head_size=1, ex_multi_scale_num=0):
+    def __init__(self,
+                 n_embed=1024,
+                 embed_dim=256,
+                 ch=64,
+                 out_ch=3,
+                 ch_mult=(1, 2, 2, 4, 4, 8),
+                 num_res_blocks=2,
+                 attn_resolutions=(16, ),
+                 dropout=0.0,
+                 in_channels=3,
+                 resolution=512,
+                 z_channels=256,
+                 double_z=False,
+                 enable_mid=True,
+                 fix_decoder=False,
+                 fix_codebook=True,
+                 fix_encoder=False,
+                 head_size=4,
+                 ex_multi_scale_num=1):
         super(VQVAEGANMultiHeadTransformer, self).__init__()
 
         self.encoder = MultiHeadEncoder(ch=ch, out_ch=out_ch, ch_mult=ch_mult, num_res_blocks=num_res_blocks,
