@@ -27,6 +27,7 @@ This repo is a official implementation of "[RestoreFormer++: Towards Real-World 
 - pytorch-lightning==1.0.8
 - omegaconf==2.0.0
 - ~~basicsr==1.3.3.4~~ **basicsr>=1.4.2**
+- realesrgan==0.3.0
 
 **Warning** Different versions of pytorch-lightning and omegaconf may lead to errors or different results.
 
