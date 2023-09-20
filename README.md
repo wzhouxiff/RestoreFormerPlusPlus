@@ -132,10 +132,10 @@ scripts/run.sh
 - Related metric models are in *./experiments/pretrained_models/*
 
 ## Citation
-    @article{wang2022restoreformer++,
+    @article{wang2023restoreformer++,
       title={RestoreFormer++: Towards Real-World Blind Face Restoration from Undegraded Key-Value Paris},
       author={Wang, Zhouxia and Zhang, Jiawei and Chen, Tianshui and Wang, Wenping and Luo, Ping},
-      booktitle={arXiv preprint arXiv:2308.07228},
+      booktitle={IEEE Transactions on Pattern Analysis and Machine Intelligence (T-PAMI)},
       year={2023}
     }
 
