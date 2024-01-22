@@ -37,7 +37,7 @@ os.makedirs('output', exist_ok=True)
 
 
 # def inference(img, version, scale, weight):
-def inference(img, version, scale):
+def inference(img, version, aligned, scale):
     # weight /= 100
     print(img, version, scale)
     if scale > 4:
@@ -70,7 +70,12 @@ def inference(img, version, scale):
 
         try:
             # _, _, output = face_enhancer.enhance(img, has_aligned=False, only_center_face=False, paste_back=True, weight=weight)
-            _, _, output = face_enhancer.enhance(img, has_aligned=False, only_center_face=False, paste_back=True)
+            has_aligned = True if aligned == 'aligned' else False
+            _, restored_aligned, restored_img = face_enhancer.enhance(img, has_aligned=has_aligned, only_center_face=False, paste_back=True)
+            if has_aligned:
+                output = restored_aligned[0]
+            else:
+                output = restored_img
         except RuntimeError as error:
             print('Error', error)
 
@@ -183,6 +188,7 @@ demo = gr.Interface(
     inference, [
         gr.Image(type="filepath", label="Input"),
         gr.Radio(['RestoreFormer', 'RestoreFormer++'], type="value", value='RestoreFormer++', label='version'),
+        gr.Radio(['aligned', 'unaligned'], type="value", value='unaligned', label='Image Alignment'),
         gr.Number(label="Rescaling factor", value=2),
     ], [
         gr.Image(type="numpy", label="Output (The whole image)"),

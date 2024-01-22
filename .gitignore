@@ -16,3 +16,4 @@ restoreformer_requirement.txt
 configs_local/
 scripts_local/
 *.pyc
+output/
