@@ -39,7 +39,7 @@ model:
         disc_weight: 0.8
         codebook_weight: 1.0
         use_actnorm: False
-        comp_weight: [1.0, 1.0, 1.0, 0]
+        comp_weight: 1.0
         identity_weight: 1.0
         identity_model_path: experiments/pretrained_models/arcface_resnet18.pth
 

@@ -3,7 +3,8 @@ from copy import deepcopy
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from basicsr.losses.losses import GANLoss, L1Loss
+from basicsr.losses.basic_loss import L1Loss
+from basicsr.losses.gan_loss import GANLoss
 
 from RestoreFormer.modules.discriminator.model import (NLayerDiscriminator,
                                                        weights_init)

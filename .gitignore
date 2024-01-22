@@ -7,7 +7,12 @@ results/
 # scripts/metrics
 .vscode/
 .DS_Store
+*/.DS_Store
 
 # private only
 no_release/
 no_release_bk/
+restoreformer_requirement.txt
+configs_local/
+scripts_local/
+*.pyc

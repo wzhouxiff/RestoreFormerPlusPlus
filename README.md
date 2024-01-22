@@ -1,14 +1,19 @@
-# ToDo List
+# RestoreFormer++: Towards Real-World Blind Face Restoration from Undegraded Key-Value Paris
 
-- [x] 20230915 Update an online demo [![Huggingface Gradio](https://img.shields.io/static/v1?label=Demo&message=Huggingface%20Gradio&color=orange)](https://huggingface.co/spaces/wzhouxiff/RestoreFormerPlusPlus)
-- [x] 20230915 Provide a user-friendly method for [inference](#inference).
-    - It is avaliable for background SR with [RealESRGAN](https://github.com/xinntao/Real-ESRGAN).
-    - **basicsr should be upgraded to 1.4.2**.
-- [x] 20230914 Upload model
-- [x] 20230914 Realse Code
-- [x] 20221120 Introducing the project.
+[![paper_RestroeForemer++](https://img.shields.io/badge/TPAMI-RestorFormer%2B%2B-green
+)](https://openaccess.thecvf.com/content/CVPR2022/papers/Wang_RestoreFormer_High-Quality_Blind_Face_Restoration_From_Undegraded_Key-Value_Pairs_CVPR_2022_paper.pdf)
+&nbsp; 
+[![paere_RestroeForemer](https://img.shields.io/badge/CVPR22-RestorFormer-green)](https://openaccess.thecvf.com/content/CVPR2022/papers/Wang_RestoreFormer_High-Quality_Blind_Face_Restoration_From_Undegraded_Key-Value_Pairs_CVPR_2022_paper.pdf)
+&nbsp;
+[![code_RestroeForemer++](https://img.shields.io/badge/GitHub-RestoreFormer%2B%2B-red
+)](https://github.com/wzhouxiff/RestoreFormerPlusPlus)
+&nbsp; 
+[![code_RestroeForemer](https://img.shields.io/badge/GitHub-RestoreFormer-red)](https://github.com/wzhouxiff/RestoreFormer)
+&nbsp;
+[![demo](https://img.shields.io/badge/Demo-Gradio-orange
+)](https://gradio.app/hub/wzhouxiff/RestoreFormerPlusPlus)
 
-# RestoreFormer++
+
 
 This repo is a official implementation of "[RestoreFormer++: Towards Real-World Blind Face Restoration from Undegraded Key-Value Paris](https://arxiv.org/pdf/2308.07228.pdf)". 
 
@@ -20,6 +25,16 @@ This repo is a official implementation of "[RestoreFormer++: Towards Real-World 
 
 ![images/fig3.png](images/fig3.png)
 
+# ToDo List
+- [x] 20240122 Provided local [gradio demo](#gradio_demo). 
+- [x] 20230915 Update an online demo [![Huggingface Gradio](https://img.shields.io/badge/Demo-Gradio-orange)](https://huggingface.co/spaces/wzhouxiff/RestoreFormerPlusPlus)
+- [x] 20230915 Provide a user-friendly method for [inference](#inference).
+    - It is avaliable for background SR with [RealESRGAN](https://github.com/xinntao/Real-ESRGAN).
+    - **basicsr should be upgraded to 1.4.2**.
+- [x] 20230914 Upload model
+- [x] 20230914 Realse Code
+- [x] 20221120 Introducing the project.
+
 ## Environment
 
 - python>=3.7
@@ -29,7 +44,11 @@ This repo is a official implementation of "[RestoreFormer++: Towards Real-World 
 - ~~basicsr==1.3.3.4~~ **basicsr>=1.4.2**
 - realesrgan==0.3.0
 
-**Warning** Different versions of pytorch-lightning and omegaconf may lead to errors or different results.
+```
+pip install -r RF_requirements.txt
+```
+    
+❗❗❗ **Warning** Different versions of pytorch-lightning and omegaconf may lead to errors or different results.
 
 ## Preparations of dataset and models
 
@@ -39,6 +58,10 @@ This repo is a official implementation of "[RestoreFormer++: Towards Real-World 
 
 **Model**: 
 Both pretrained models used for training and the trained model of our RestoreFormer and RestoreFormer++ can be attained from [Google Driver](https://connecthkuhk-my.sharepoint.com/:f:/g/personal/wzhoux_connect_hku_hk/EkZhGsLBtONKsLlWRmf6g7AB_VOA_6XAKmYUXLGKuNBsHQ?e=ic2LPl). Link these models to ./experiments.
+
+<h2 id='gradio_demo'> Gradio Demo</h2>
+    
+    python gradio_demo/app.py
 
 <!-- ## <a id="metrics">Metrics</a> -->
 <h2 id="inference">Quick Inference</h2>
