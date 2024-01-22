@@ -96,7 +96,6 @@ def main():
         channel_multiplier = 2
         model_name = 'RestoreFormer++'
         url = 'https://github.com/wzhouxiff/RestoreFormerPlusPlus/releases/download/v1.0.0/RestoreFormer++.ckpt'
-        url = None
     else:
         raise ValueError(f'Wrong model version {args.version}.')
 
