@@ -11,7 +11,7 @@
 [![code_RestroeForemer](https://img.shields.io/badge/GitHub-RestoreFormer-red)](https://github.com/wzhouxiff/RestoreFormer)
 &nbsp;
 [![demo](https://img.shields.io/badge/Demo-Gradio-orange
-)](https://gradio.app/hub/wzhouxiff/RestoreFormerPlusPlus)
+)](https://huggingface.co/spaces/wzhouxiff/RestoreFormerPlusPlus)
 
 
 
