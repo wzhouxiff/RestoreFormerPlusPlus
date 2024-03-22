@@ -57,7 +57,9 @@ pip install -r RF_requirements.txt
 - <a id="testset">Test data</a>: [CelebA-Test](https://pan.baidu.com/s/1iUvBBFMkjgPcWrhZlZY2og?pwd=test), [LFW-Test](http://vis-www.cs.umass.edu/lfw/#views), [WebPhoto-Test](https://xinntao.github.io/projects/gfpgan), and [CelebChild-Test](https://xinntao.github.io/projects/gfpgan)
 
 **Model**: 
-Both pretrained models used for training and the trained model of our RestoreFormer and RestoreFormer++ can be attained from [Google Driver](https://connecthkuhk-my.sharepoint.com/:f:/g/personal/wzhoux_connect_hku_hk/EkZhGsLBtONKsLlWRmf6g7AB_VOA_6XAKmYUXLGKuNBsHQ?e=ic2LPl). Link these models to ./experiments.
+Both pretrained models used for training and the trained model of our RestoreFormer and RestoreFormer++ can be attained from [Google Driver](https://drive.google.com/drive/folders/1-WPxGJu8CK6SjprJSD4Mvm2zQH9J7xCU?usp=drive_link). Link these models to ./experiments.
+
+
 
 <h2 id='gradio_demo'> Gradio Demo</h2>
     
