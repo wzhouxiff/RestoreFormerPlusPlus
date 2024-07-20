@@ -15,7 +15,7 @@
 
 
 
-This repo is a official implementation of "[RestoreFormer++: Towards Real-World Blind Face Restoration from Undegraded Key-Value Paris](https://arxiv.org/pdf/2308.07228.pdf)". 
+This repo is an official implementation of "[RestoreFormer++: Towards Real-World Blind Face Restoration from Undegraded Key-Value Paris](https://arxiv.org/pdf/2308.07228.pdf)". 
 
 
 
