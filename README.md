@@ -1,7 +1,6 @@
 # RestoreFormer++: Towards Real-World Blind Face Restoration from Undegraded Key-Value Paris
 
-[![paper_RestroeForemer++](https://img.shields.io/badge/TPAMI-RestorFormer%2B%2B-green
-)]([https://arxiv.org/pdf/2308.07228)
+[![paper_RestroeForemer++](https://img.shields.io/badge/TPAMI-RestorFormer%2B%2B-green)](https://arxiv.org/pdf/2308.07228)
 &nbsp; 
 [![paere_RestroeForemer](https://img.shields.io/badge/CVPR22-RestorFormer-green)](https://openaccess.thecvf.com/content/CVPR2022/papers/Wang_RestoreFormer_High-Quality_Blind_Face_Restoration_From_Undegraded_Key-Value_Pairs_CVPR_2022_paper.pdf)
 &nbsp;
