@@ -1,4 +1,4 @@
-# RestoreFormer++: Towards Real-World Blind Face Restoration from Undegraded Key-Value Paris
+# RestoreFormer++: Towards Real-World Blind Face Restoration from Undegraded Key-Value Pairs
 
 [![paper_RestroeForemer++](https://img.shields.io/badge/TPAMI-RestorFormer%2B%2B-green)](https://arxiv.org/pdf/2308.07228)
 &nbsp; 
@@ -14,7 +14,7 @@
 
 
 
-This repo is an official implementation of "[RestoreFormer++: Towards Real-World Blind Face Restoration from Undegraded Key-Value Paris](https://arxiv.org/pdf/2308.07228.pdf)". 
+This repo is an official implementation of "[RestoreFormer++: Towards Real-World Blind Face Restoration from Undegraded Key-Value Pairs](https://arxiv.org/pdf/2308.07228.pdf)". 
 
 
 
@@ -157,7 +157,7 @@ scripts/run.sh
 
 ## Citation
     @article{wang2023restoreformer++,
-      title={RestoreFormer++: Towards Real-World Blind Face Restoration from Undegraded Key-Value Paris},
+      title={RestoreFormer++: Towards Real-World Blind Face Restoration from Undegraded Key-Value Pairs},
       author={Wang, Zhouxia and Zhang, Jiawei and Chen, Tianshui and Wang, Wenping and Luo, Ping},
       booktitle={IEEE Transactions on Pattern Analysis and Machine Intelligence (T-PAMI)},
       year={2023}
